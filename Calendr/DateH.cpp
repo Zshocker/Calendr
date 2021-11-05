@@ -23,3 +23,14 @@ Time::DateH::DateH(int s, int min, int h,unsigned int d,unsigned int mon,unsigne
     mon<=12 ? this->Month = mon:this->Month=1;
     y > 1900 ? this->Year = y: this->Year=1900;
 }
+
+bool Time::DateH::operator>(DateH&He)
+{
+    if (this->Year > He.Year)return true;
+    if (this->Year < He.Year)return false;
+    if (this->Month > He.Month)return true;
+    if (this->Month < He.Month)return false;
+    if (this->Day > He.Day)return true;
+    if (this->Day < He.Day)return false;
+    return this->Time::Heure::operator>(He);
+}
