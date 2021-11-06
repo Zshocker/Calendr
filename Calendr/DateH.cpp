@@ -26,11 +26,18 @@ Time::DateH::DateH(int s, int min, int h,unsigned int d,unsigned int mon,unsigne
 
 bool Time::DateH::operator>(DateH&He)
 {
-    if (this->Year > He.Year)return true;
-    if (this->Year < He.Year)return false;
-    if (this->Month > He.Month)return true;
-    if (this->Month < He.Month)return false;
-    if (this->Day > He.Day)return true;
-    if (this->Day < He.Day)return false;
-    return this->Time::Heure::operator>(He);
+    if (this->compare(He) == 1)return true;
+    return false;
 }
+
+int Time::DateH::compare(DateH& He)
+{
+    if (this->Year > He.Year)return 1;
+    if (this->Year < He.Year)return -1;
+    if (this->Month > He.Month)return 1;
+    if (this->Month < He.Month)return -1;
+    if (this->Day > He.Day)return 1;
+    if (this->Day < He.Day)return -1;
+    return this->Time::Heure::compare(He);
+}
+
