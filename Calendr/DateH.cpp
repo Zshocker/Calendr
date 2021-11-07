@@ -1,5 +1,8 @@
 #include "DateH.h"
 #include<assert.h>
+#include<iostream>
+using namespace std;
+using namespace Time;
 bool Time::DateH::checkLeapY(unsigned int year)
 {
     if (year % 400 == 0)return true;
@@ -24,13 +27,13 @@ Time::DateH::DateH(int s, int min, int h,unsigned int d,unsigned int mon,unsigne
     y > 1900 ? this->Year = y: this->Year=1900;
 }
 
-bool Time::DateH::operator>(DateH&He)
+bool Time::DateH::operator>(const DateH&He)const
 {
     if (this->compare(He) == 1)return true;
     return false;
 }
 
-int Time::DateH::compare(DateH& He)
+int Time::DateH::compare(const DateH& He)const
 {
     if (this->Year > He.Year)return 1;
     if (this->Year < He.Year)return -1;
@@ -39,5 +42,10 @@ int Time::DateH::compare(DateH& He)
     if (this->Day > He.Day)return 1;
     if (this->Day < He.Day)return -1;
     return this->Time::Heure::compare(He);
+}
+
+void Time::DateH::Print() const
+{
+    cout << this->Day << "/" << this->Month << "/" << this->Year << " ", this->Heure::Print();
 }
 

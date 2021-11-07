@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClCompile Include="DateH.cpp" />
     <ClCompile Include="Heure.cpp" />
+    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
